@@ -16,6 +16,7 @@
 
     <div class="form-group">
       <label class="col-sm-3 control-label">First Name</label>
+
       <div class="col-sm-9">
         <input type="text" class="form-control" placeholder="Enter Firstname" name="fname" required value="<?php echo $firstname ?>">
       </div>
@@ -56,6 +57,8 @@
         <input type="text" class="form-control" value="<?php echo $description ?>" />
       </div>
     </div>
-
-
+    <div class="pull-right">
+        <button type="submit" class="btn btn-primary">Confirm</button>
+    </div>
     </form>
+    <br />

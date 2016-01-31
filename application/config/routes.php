@@ -59,3 +59,11 @@ $route['user_login']						= 'login/user_login';
 $route['sign_up']							= 'login/sign_up';
 $route['users_req_list']					= 'users/users_req_list';
 $route['request_material']					= 'materials/request_material';
+$route['list_req_mat']						= 'materials/list_req_mat';
+$route['print_request/(:any)']				= 'materials/print_request/$1';
+$route['update_mat_status/(:num)/(:num)']	= 'materials/update_mat_status/$1/$2';
+
+
+//Purchase Request
+$route['pr']								= 'purchase_request/pr';
+$route['print_pr/(:num)']					= 'purchase_request/print_pr/$1';

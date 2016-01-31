@@ -38,3 +38,40 @@ body
     opacity: 0;
     filter: alpha(opacity=0);
 }
+
+.get_styles{
+    background-color:white;
+    min-height: 600px;
+    margin-top: 5%;
+    box-shadow: 0px 0px 20px #bbb;
+    margin-bottom: 5%;
+}
+.container_div
+{
+    margin-top: 3%;
+    margin-right: 7%;
+    margin-left: 7%;
+    margin-bottom: 7%; 
+
+}
+.letter_style
+{
+  text-align: justify;
+}
+ table tr td .remove_border{
+     border-top: none;
+     border-left:none;
+  }
+@media print{
+  .container_div{
+    margin:0;
+    margin-bottom: 0; 
+  }
+  .get_styles{
+     margin-top: 0%;
+  }
+  .remove_border{
+     border-top: 2px solid white;
+     border-left: 2px solid white;
+  }
+}

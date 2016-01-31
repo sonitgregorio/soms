@@ -14,14 +14,22 @@
             <li>
                 <a href="/users_req_list" class="<?php echo ($params == 'request') ? 'active' : '' ?>" style="color:#fff">Users Registration List</a>
             </li>
-           
+            <li>
+                <a href="/list_req_mat" class="<?php echo ($params == 'list_request_mat') ? 'active' : '' ?>" style="color:#fff;">List of Material Request</a>
+            </li>
+            <li>
+                <a href="/pr" class="<?php echo ($params == 'pr') ? 'active' : '' ?>" style="color:#fff;">Purchase Request</a>
+            </li>
+            <li>
+                <a href="/pr" class="<?php echo ($params == 'pr') ? 'active' : '' ?>" style="color:#fff;">Request For Quotation</a>
+            </li>
             <?php } else { ?>
 
             <li>
                 <a href="/request_material" class="<?php echo ($params == 'request_mat') ? 'active' : '' ?>" style="color:#fff;">Request Material</a>
             </li>
             <li>
-                <a href="/Request Material" style="color:#fff;">My Approve Material</a>
+                <!-- <a href="/list_req_mat" style="color:#fff;">List of Material Request</a> -->
             </li>
             <?php } ?>
             <li>

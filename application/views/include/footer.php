@@ -49,6 +49,13 @@
           $('#add_materials').modal('show');
         });
 
+
+        $('.addrfq').click(function(e){
+          x = $(this).data('param');
+          $('input[name=mid]').val(x);
+          $('#add_rfq').modal('show');
+        })
+
         $('.del_materials').click(function(e){
           x = $(this).data('param');
           m = confirm('Are You Sure?');

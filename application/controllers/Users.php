@@ -24,7 +24,9 @@
 		}
 		function update_status()
 		{
-			//echo $this->input->post('pids');
+			 $pids = $this->input->post('pids');
+			 $this->load->model('usersmd');
+			 $this->usersmd->update_status($pids);
 			 redirect('/users_req_list');
 		}
 	}

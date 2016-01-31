@@ -9,19 +9,30 @@
                   </div>
                   <div class="panel-body">
                   
-                      
+                    
                       <div class="col-md-12">
-                      <?php echo $this->session->flashdata('message') ?>
+                     
                       <form class="form-horizontal" action="/materials/insert_desc" method="POST">
                         <div class="form-group">
                             
-                          <div class="col-lg-6">
-                            <div class="input-group">
-                              <input type="text" class="form-control" placeholder="Description For Request" name="desc" required>
-                              <span class="input-group-btn">
-                                <button class="btn btn-primary" type="submit">Save</button>
-                              </span>
+                          <div class="col-lg-7">
+                           <?php echo $this->session->flashdata('message') ?>
+                          <div class="form-group">
+                              <label class="col-sm-3 control-label">Section</label>
+                              <div class="col-sm-9">
+                                  <input type="text" class="form-control" name="section" placeholder="Enter Section Here" required>
+                              </div>
+                          </div>                        
+                          <div class="form-group">
+                          <label class="col-sm-3 control-label">Letter</label>
+                            <div class="col-sm-9">
+                              <textarea class="form-control" name="desc" placeholder="Enter request letter here." rows="5" style="resize:none"></textarea>                        
+                              
                             </div>
+                          </div>
+                          <div class="pull-right">
+                            <button class="btn btn-primary" type="submit">Save</button>
+                          </div>
                           </div>
                         </div>
                       </form>
@@ -32,13 +43,17 @@
                         <table class="table table-bordered table-hover table-striped">
                           <thead>
                             <tr class="navbar-inverse">
-                              <td style="color:white;text-align:center">Description</td>
-                              <td width="300" style="color:white;text-align:center">Action</td>
+                              <td style="color:white;text-align:center">PR No.</td>
+                              <td style="color:white;text-align:center">Section</td>
+                              <td style="color:white;text-align:center" width="500">Description</td>
+                              <td width="" style="color:white;text-align:center">Action</td>
                             </tr>
                           </thead>
                           <tbody>
                           <?php foreach ($this->materialsmd->get_request() as $key => $value): ?>
                             <tr>
+                              <td><?php echo $value['prno'] ?></td>
+                              <td><?php echo $value['section'] ?></td>
                               <td><?php echo $value['description'] ?></td>
                               <td>
                                 <a href="#" class="btn btn-info addmaterial" data-toggle="modal" data-param="<?php echo $value['id'] ?>">Add Materials <span class="glyphicon glyphicon-pencil"></span></a>
@@ -94,6 +109,12 @@
                 <input type="text"  step="any" class="form-control" name="quantity" />
               </div>
             </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Estimated Unit Cost</label>
+              <div class="col-sm-9">
+                <input type="text"  step="any" class="form-control" name="unitcost" />
+              </div>
+            </div>
             <div class="pull-right">
               <a href="#" class="btn btn-success cancels">Cancel</a>
               <button type="submit" class="btn btn-primary">Add</button>
@@ -106,6 +127,8 @@
                     <td style="color:white;text-align:center">Description</td>
                     <td style="color:white;text-align:center">Units</td>
                     <td width="30" style="color:white;text-align:center">Quantity</td>
+                    <td width="30" style="color:white;text-align:center">Estimated Unit Cost</td>
+                    <td width="30" style="color:white;text-align:center">Estimated Cost</td>
                     <td width="30" style="color:white;text-align:center">Action</td>
                   </tr>
                 </thead>

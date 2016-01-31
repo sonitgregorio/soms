@@ -23,6 +23,11 @@
 			$x = $this->db->get('tbl_users a, tbl_party b, tbl_department c')->row_array();
 			return $x;
 		}
+		function update_status($id)
+		{
+			$this->db->where('pid', $id);
+			$this->db->update('tbl_users', array('status' => 1));
+		}
 	}
 
 ?>
