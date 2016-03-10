@@ -11,7 +11,7 @@
     
     <link href="<?=base_url()?>assets/css/jquery.dataTables.min.css" rel="stylesheet">
     <link rel="stylesheet" href="<?=base_url()?>assets/css/style.css">
-    <link rel="icon" type="image/png" href="<?=base_url()?>assets/images/EVSU.jpg" sizes="128x128" />
+    <link rel="icon" type="image/png" href="http://soms.com/assets/images/EVSU.jpg" sizes="128x128" />
     <title>Supply Management System</title>
   </head>
   <body>

@@ -24,6 +24,12 @@
             });
             
         });
+
+        $('.addpo').click(function(e){
+          mid = $(this).data('param');
+          $('input[name=mid]').val(mid);
+          $('#add_po').modal('show');
+        });
        
         $("#menu-toggle").click(function(e) {
               e.preventDefault();
@@ -89,6 +95,34 @@
           
           });
         });
+
+
+        $('.item_select').change(function(e){
+            x = $('.item_select').val();
+            $.post('/rfq/get_quantity', {x}, function(data){
+              $('input[name=qty]').val(data);
+            });
+
+        }); 
+
+        $('.unitp').change(function(e){
+          x = $('input[name=qty]').val();
+          y = $('.unitp').val();
+
+          z = x * y;
+          $('input[name=total]').val(z);
+        });
+
+        $('.invoice').click(function(){
+          x = $(this).data('param');
+          $('input[name=mid]').val(x);
+          $('#inv_mat').modal('show');
+        });
+
+
+
+
+
       });
       </script>
 

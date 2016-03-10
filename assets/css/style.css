@@ -58,6 +58,9 @@ body
 {
   text-align: justify;
 }
+.align_text{
+  text-align: center;
+}
  table tr td .remove_border{
      border-top: none;
      border-left:none;

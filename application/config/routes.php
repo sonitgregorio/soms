@@ -67,3 +67,19 @@ $route['update_mat_status/(:num)/(:num)']	= 'materials/update_mat_status/$1/$2';
 //Purchase Request
 $route['pr']								= 'purchase_request/pr';
 $route['print_pr/(:num)']					= 'purchase_request/print_pr/$1';
+
+
+//Request for Quotation
+$route['rfq']								= 'rfq/rfq_list';
+$route['print_rfq/(:num)']					= 'rfq/print_rfq/$1';
+
+//Purchase Order
+
+$route['add_po_mat/(:num)/(:num)']			= 'rfq/add_po_mat/$1/$2';
+$route['set_prices/(:any)']					= 'rfq/set_prices/$1';
+$route['po_list']							= 'po/po_list';
+$route['print_po/(:any)']					= 'po/print_po/$1';
+
+
+$route['submit_inv']						= 'po/submit_inv';
+

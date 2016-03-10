@@ -130,9 +130,9 @@
 				$coded_no .= '0';
 			}
 			$coded_no .= $last_id;	
+			$rfqno = date('Y') .' - '. $coded_no;
 
-
-			$data = array('mid' => $mid, 'delivery' => $delivery, 'rfq_no' => $coded_no);
+			$data = array('mid' => $mid, 'delivery' => $delivery, 'rfq_no' => $rfqno);
 			$this->api->table_insert('tbl_rfq', $data);
 
 
