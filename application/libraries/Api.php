@@ -90,7 +90,7 @@ class Api
             $x = 'July';
         }
          elseif ($val == 8) {
-            $x = 'Augost';
+            $x = 'August';
         }
          elseif ($val == 9) {
             $x = 'September';

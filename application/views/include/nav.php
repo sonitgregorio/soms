@@ -36,7 +36,7 @@
             </li>
             <?php } ?>
             <li>
-                <a href="/request_material" class="<?=  ($params == 'request_mat') ? 'active' : '' ?>" style="color:#fff;">Inspection and Acceptance Report</a>
+                <a href="/iar" class="<?=  ($params == 'iar') ? 'active' : '' ?>" style="color:#fff;">Inspection and Acceptance Report</a>
             </li>
             <li>
                 <a href="/login/logout" style="color:white">Logout</a>

@@ -83,3 +83,7 @@ $route['print_po/(:any)']					= 'po/print_po/$1';
 
 $route['submit_inv']						= 'po/submit_inv';
 
+$route['iar']								= 'iar/inspect';
+
+$route['check_item/(:num)']					= 'iar/check_item/$1';
+
