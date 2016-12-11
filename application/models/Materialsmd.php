@@ -25,10 +25,11 @@
 		}
 		public function get_request_list()
 		{
-			$this->db->where('status', 0);
-			$this->db->where('a.pid = b.id');
-			$this->db->where('b.department = c.id');
-			$this->db->select('a.id, a.prno, a.section, a.description, b.firstname, b.lastname, c.description as department');
+		    $where = 'b.department = c.id AND a.pid = b.id AND (status = 0 OR status = 1)';
+			$this->db->where($where);
+//			$this->db->where('a.pid = b.id');
+//			$this->db->where('b.department = c.id');
+			$this->db->select('a.id, a.prno, a.section, a.description, b.firstname, b.lastname, c.description as department,a.status');
 			return $this->db->get('tbl_mat_desc a, tbl_party b, tbl_department c')->result_array();
 		}
 		public function update_mat_status($id, $stats)

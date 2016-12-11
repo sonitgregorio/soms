@@ -36,12 +36,13 @@
 		function submit_material()
 		{
 			$this->load->model('materialsmd');
+            $mat_type = $this->input->post('mat_type');
 			$unitcost = $this->input->post('unitcost');
 			$desc = $this->input->post('description');
 			$mid = $this->input->post('mid');
 			$quantity = $this->input->post('quantity');
 			$units = $this->input->post('units');
-			$data = array('description' => $desc, 'unit' => $units, 'quantity' => $quantity, 'mid' => $mid, 'unitcost' => $unitcost);
+			$data = array('description' => $desc, 'unit' => $units, 'quantity' => $quantity, 'mid' => $mid, 'unitcost' => $unitcost, 'mat_type' => $mat_type);
 			$checking = $this->materialsmd->check_exist($mid, $desc);
 			if ($checking > 0) {
 				echo 1;
@@ -146,6 +147,95 @@
 			redirect('/pr');
 
 		}
+		public function filter_physical(){
+		    $count = 0;
+            $c = '';
+            $str = '';
+            $total = 0;
+            $item = $this->db->query("SELECT id FROM material_type")->result_array();
+            foreach ($item as $key => $value){
+                if ($count == 0){
+                    $c = $value['id'];
+                }else{
+                    $c .= ', ' . $value['id'];
+                }
+                $count += 1;
+            }
+		    $from = $this->input->post('fromdate');
+            $to = $this->input->post('todate');
+            $val = $this->db->query("SELECT (c.unitprice * b.quantity) total, d.* FROM `tbl_mat_desc` a, tbl_material_list b, tbl_po_prices c, material_type d where a.id = b.mid AND a.date_request BETWEEN '{$from}' AND '{$to}' AND b.mat_type in ({$c}) AND b.id = c.matlistid AND b.mat_type = d.id")->result_array();
+            foreach ($val as $key => $value){
+                $total += $value['total'];
+                $str .= "<tr>
+                       <td>" . $value['description'] . "</td>
+                       <td>" . number_format($value['total'], 2, '.', ',') . "</td>
+                </tr>";
+            }
+            $str .= "<tr><td>Total</td><td>" . number_format($total, 2, '.', ',') . "</td></tr>";
+            echo $str;
+		}
+
+
+		public function filter_ppe(){
+		    $str = '';
+            $total = 0;
+            $from = $this->input->post('fromdate');
+            $to = $this->input->post('todate');
+            $val = $this->db->query("SELECT (c.unitprice * b.quantity) total, d.description mat_type, b.description, b.quantity, c.unitprice FROM `tbl_mat_desc` a, tbl_material_list b, tbl_po_prices c, material_type d,   material_type e where a.id = b.mid AND a.date_request BETWEEN '{$from}' AND '{$to}' AND b.mat_type = e.id  AND b.id = c.matlistid AND b.mat_type = d.id")->result_array();
+            foreach ($val as $key => $value){
+                $total += $value['total'];
+                $str .= "<tr>
+                       <td>" . $value['mat_type'] . "</td>
+                       <td>" . $value['description'] . "</td>
+                       <td></td>
+                        <td>" . $value['quantity'] . "</td>
+                        <td>" . $value['unitprice'] . "</td>
+                        <td>" . $value['quantity'] . "</td>
+                        <td>" . $value['quantity'] . "</td>
+                        <td>" . $value['total'] . "</td>
+                </tr>";
+            }
+
+            $str .= "<tr>
+                    <td colspan='7' style='text-align: center'><b>Total</b></td>
+                    <td>" . $total ."</td>
+                </tr>";
+            echo $str;
+        }
+
+		public function filter_supply(){
+		    $str = '';
+            $total = 0;
+            $from = $this->input->post('fromdate');
+            $to = $this->input->post('todate');
+            $val = $this->db->query("SELECT (c.unitprice * b.quantity) total, c.unitprice, d.description mat_type, b.description, b.quantity, CONCAT(f.firstname, ' ', f.lastname) req FROM `tbl_mat_desc` a, tbl_material_list b, tbl_po_prices c, material_type d, material_type e, tbl_party f where a.id = b.mid AND b.mat_type = e.id AND b.id = c.matlistid AND b.mat_type = d.id AND a.pid = f.id AND a.date_request BETWEEN '{$from}' AND '{$to}'")->result_array();
+            foreach ($val as $key => $value){
+                $total += $value['total'];
+                $str .= "<tr>
+                       <td>" . $value['req'] . "</td>
+                       <td>" . $value['description'] . "</td>
+                        <td>" . $value['quantity'] . "</td>
+                        <td>" . $value['unitprice'] . "</td>
+                        <td>" . number_format($value['total'], 2, '.', ',') . "</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                </tr>";
+            }
+
+            $str .= "<tr>
+                    <td colspan='4' style='text-align: center'><b>Total</b></td>
+                    <td>" . $total ."</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>";
+            echo $str;
+        }
 
 	}
 ?>

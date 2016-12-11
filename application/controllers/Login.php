@@ -27,6 +27,7 @@
 			}
 			redirect('/');
 		}
+		
 		function logout()
 		{
 			$this->session->unset_userdata('pid');

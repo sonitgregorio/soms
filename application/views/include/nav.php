@@ -7,7 +7,7 @@
                   <img src="../assets/images/EVSU.jpg" alt="x" width="40" style="border-radius:20px"/> EVSU
                 </a>
             </li>
-            <?php if($this->session->userdata('usertype') == 1) { ?>
+            <?php if($this->session->userdata('usertype') == 1 || $this->session->userdata('usertype') == 3) { ?>
             <!-- <li>
                 <a href="/user_registration" style="color:#fff">Student Registration</a>
             </li> -->
@@ -37,6 +37,21 @@
             <?php } ?>
             <li>
                 <a href="/iar" class="<?=  ($params == 'iar') ? 'active' : '' ?>" style="color:#fff;">Inspection and Acceptance Report</a>
+            </li>
+            <li>
+                <a href="/rep" class="<?=  ($params == 'rep') ? 'active' : '' ?>" style="color:#fff;">Annual Procurement</a>
+            </li>
+            <li>
+                <a href="/physical" class="<?=  ($params == 'physical') ? 'active' : '' ?>" style="color:#fff;">Physical Count of Property</a>
+            </li>
+            <li>
+                <a href="/ppe" class="<?=  ($params == 'ppe') ? 'active' : '' ?>" style="color:#fff;">Detailed PPE</a>
+            </li>
+            <li>
+                <a href="/reports_supply" class="<?=  ($params == 'supply') ? 'active' : '' ?>" style="color:#fff;">Reports Of Supply</a>
+            </li>
+            <li>
+                <a href="/tr" class="<?=  ($params == 'track') ? 'active' : '' ?>" style="color:#fff;">Tracks</a>
             </li>
             <li>
                 <a href="/login/logout" style="color:white">Logout</a>

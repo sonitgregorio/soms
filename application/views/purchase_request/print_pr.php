@@ -20,24 +20,6 @@
 					<center><h6 style="margin:5px">Carigara, Leyte</h6></center>
 					<center><h5 style="margin:5px"><u>evsu_carigara@yahoo.com | 053 331 2356</u></h5></center>
 					<br /><br />
-
-
-				<!-- 	<p><?php
-							 $date = explode('-', Date('Y-m-d'));
-							 echo $this->api->monthselect($date[1]) . " " . $date[2] . ", " . $date[0]; 
-					?></p>
-
-
-					<p style="font-size:12px"><b><?php echo $sig['name'] ?></b><br/><?php echo $sig['position'] ?></p>
-					<br />
-					<p style="font-size:12px">Dear <?php echo $sig['title'] ?></p>		
-
-					<br />
-					<br />
-
-					<p class="letter_style"><?php echo $get_letter['description'] ?></p>
-					<br />
-					 -->
 						<center>
 							<table class="table table-bordered">
 								<thead>

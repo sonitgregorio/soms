@@ -30,7 +30,7 @@
                                   <td><?= $value['prno'] ?></td>
                                   <td><?= $value['section'] ?></td>
                                   <td><?= $value['date_request'] ?></td>
-                                  <td style="text-align:center;"> <a href="/check_item/<?php echo $value['mid'] ?>" class="btn btn-info addmaterial">Check&nbsp;&nbsp;<span class="glyphicon glyphicon-check"></span></a></td>
+                                  <td style="text-align:center;"> <a href="/check_item/<?php echo $value['mid'] ?>" class="btn btn-info addmaterial" data-param="<?= $value['mid']; ?>">Check&nbsp;&nbsp;<span class="glyphicon glyphicon-check"></span></a></td>
                                 </tr>
                               <?php endforeach ?>
                             </tbody>

@@ -85,5 +85,18 @@ $route['submit_inv']						= 'po/submit_inv';
 
 $route['iar']								= 'iar/inspect';
 
+$route['rep']								= 'rep/reports';
+$route['print_reports']			            = 'rep/print_reports';
+$route['print_physical']                    = 'rep/print_physical';
+$route['print_ppe']                         = 'rep/print_ppe';
+$route['print_supply']                      = 'rep/print_supply';
+
+$route['tr']								= 'tr/tracks';
+
 $route['check_item/(:num)']					= 'iar/check_item/$1';
+$route['save_disapprove']					= 'iar/save_disapprove';
+
+$route['physical']					        = 'iar/physical';
+$route['ppe']					            = 'iar/ppe';
+$route['reports_supply']					= 'iar/reports_supply';
 

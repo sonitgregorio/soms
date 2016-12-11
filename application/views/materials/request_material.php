@@ -46,6 +46,7 @@
                               <td style="color:white;text-align:center">PR No.</td>
                               <td style="color:white;text-align:center">Section</td>
                               <td style="color:white;text-align:center" width="500">Description</td>
+                              <td style="color:white;text-align:center">Status</td>
                               <td width="" style="color:white;text-align:center">Action</td>
                             </tr>
                           </thead>
@@ -55,8 +56,14 @@
                               <td><?php echo $value['prno'] ?></td>
                               <td><?php echo $value['section'] ?></td>
                               <td><?php echo $value['description'] ?></td>
+                              <td><?php echo $value['disapprove'] ?></td>
                               <td>
-                                <a href="#" class="btn btn-info addmaterial" data-toggle="modal" data-param="<?php echo $value['id'] ?>">Add Materials <span class="glyphicon glyphicon-pencil"></span></a>
+                                <?php if ($value['disapprove'] == ''){?>
+                                  <a href="#" class="btn btn-info addmaterial" data-toggle="modal" data-param="<?php echo $value['id'] ?>">Add Materials <span class="glyphicon glyphicon-pencil"></span></a>
+
+                                <?php } else { ?>
+                                    Rejected
+                                <?php } ?>
                               </td>
                             </tr>
                           <?php endforeach ?>
@@ -103,6 +110,18 @@
                 </select>
               </div>
             </div>
+
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Units</label>
+              <div class="col-sm-9">
+                <select class="form-control" name="mat_type">
+                  <?php foreach ($this->api->material_type() as $key => $value): ?>
+                    <option value="<?php $value['id'] ?>"><?php echo $value['description'] ?></option>
+                  <?php endforeach ?>
+                </select>
+              </div>
+            </div>
+
             <div class="form-group">
               <label class="col-sm-3 control-label">Quantity</label>
               <div class="col-sm-9">

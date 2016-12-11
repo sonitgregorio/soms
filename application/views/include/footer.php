@@ -1,5 +1,3 @@
-
-
 </div>
   <script src="/assets/js/jquery.js"></script>
   <script src="/assets/js/bootstrap.js"></script>
@@ -12,8 +10,6 @@
       $(document).ready(function (){
 
         $('#example').DataTable();
-
-
 
         $('.inform').click(function(e){
             pid = $(this).data('param');
@@ -30,7 +26,13 @@
           $('input[name=mid]').val(mid);
           $('#add_po').modal('show');
         });
-       
+
+          $('.disapprove').click(function(e){
+             mid = $(this).data('param');
+              $('input[name=mid_d]').val(mid);
+             $('#disapprove').modal('show');
+          });
+
         $("#menu-toggle").click(function(e) {
               e.preventDefault();
               $("#wrapper").toggleClass("toggled");
@@ -49,8 +51,9 @@
           x = $(this).data('param');
           $('input[name=mid]').val(x);
           y = 1;
+
           $.post("materials/get_item", {x, y}, function(data){
-              $(".list_mat").html(data);
+              $(".list_mat"). html(data);  
           });
           $('#add_materials').modal('show');
         });
@@ -119,8 +122,78 @@
           $('#inv_mat').modal('show');
         });
 
+        $("#sub").prop('disabled', true);
+
+        $('.checkIt').bind('click', function() {
+           var tid = $(this).data('param6');
+          if($(this).is(":checked")) {
+
+                var st = 1;
+                   $.post('/iar/add_stat',{st: st, tid: tid}, function (sub) {
+                    sub_notes(tid);
+                   });
+                
+            }else{
+               $("#sub").prop('disabled', true);
+               var st = 0;
+                $.post('/iar/add_stat',{st: st, tid: tid}, function (sub) {});
+            } 
+        });
+
+        $('#toDate').change(function () {
+            var todate = $('#toDate').val();
+            var fromdate = $('#fromDate').val();
+            $.post('/materials/filter_physical', {fromdate: fromdate, todate: todate},function(data){
+                console.log(data);
+                $("#repl").html(data)
+            })
+
+        });
+
+          $('#ptoDate').change(function () {
+            var todate = $('#ptoDate').val();
+            var fromdate = $('#pfromDate').val();
+            $.post('/materials/filter_ppe', {fromdate: fromdate, todate: todate},function(data){
+                console.log(data);
+                $("#pbody").html(data)
+            })
+
+        });
+          $('#stoDate').change(function () {
+            var todate = $('#stoDate').val();
+            var fromdate = $('#sfromDate').val();
+            $.post('/materials/filter_supply', {fromdate: fromdate, todate: todate},function(data){
+                console.log(data);
+                $("#sbody").html(data)
+            })
+
+        });
 
 
+
+
+
+
+
+
+
+
+
+        function sub_notes(tid){
+            $('#notes').submit(function (e){
+            var conote = $('#conote').val(); 
+            // var tid = $(this).data('param6');
+            $.post('/iar/add_notess',{tid:tid, conote:conote}, function (notes) {
+                          // alert($(this).data('param6'));
+                          $('#conote').val('');
+                             window.location.reload();
+                          //$('.com').html('<div class="alert alert-success">Successfuly Added</div>');
+            });
+          e.preventDefault();
+         
+           });
+        }
+        
 
 
       });

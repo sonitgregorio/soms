@@ -49,6 +49,10 @@ class Api
     {
         return $this->CI->db->get('tbl_unit')->result_array();
     }
+    function material_type()
+    {
+        return $this->CI->db->get('material_type')->result_array();
+    }
     function get_director()
     {
         return $this->CI->db->get('tbl_director')->row_array();

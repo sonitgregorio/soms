@@ -78,3 +78,11 @@ body
      border-left: 2px solid white;
   }
 }
+
+table#tbl_rep tbody tr th{
+  font-size: 10px;
+}
+#cert, #wow{
+  color: black;
+}
+
