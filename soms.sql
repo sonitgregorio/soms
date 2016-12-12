@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 11, 2016 at 06:34 AM
+-- Generation Time: Dec 12, 2016 at 03:18 PM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 CREATE TABLE IF NOT EXISTS `material_type` (
 `id` int(11) NOT NULL,
   `description` varchar(50) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `material_type`
@@ -37,7 +37,9 @@ CREATE TABLE IF NOT EXISTS `material_type` (
 
 INSERT INTO `material_type` (`id`, `description`) VALUES
 (1, 'IT Equipment'),
-(2, 'Wire Equipment');
+(2, 'Fishery Equipment'),
+(3, 'Science Equipment'),
+(4, 'Library Equipment');
 
 -- --------------------------------------------------------
 
@@ -121,7 +123,7 @@ CREATE TABLE IF NOT EXISTS `tbl_material_list` (
   `mid` int(11) NOT NULL,
   `status` int(11) NOT NULL,
   `mat_type` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_material_list`
@@ -142,7 +144,8 @@ INSERT INTO `tbl_material_list` (`id`, `description`, `unit`, `quantity`, `unitc
 (15, 'Monitor Asus', 'pc/s', '1.00', '20000.00', 11, 1, 0),
 (16, 'Laptop', 'pc/s', '1.00', '20000.00', 12, 1, 0),
 (17, 'Laptop', 'IT Equipment', '3.00', '200.00', 13, 1, 1),
-(18, 'Connector', 'Wire Equipment', '30.00', '20.00', 13, 1, 2);
+(18, 'Connector', 'Wire Equipment', '30.00', '20.00', 13, 1, 2),
+(19, 'Laptop', 'pc/s', '1.00', '60000.00', 14, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -159,7 +162,7 @@ CREATE TABLE IF NOT EXISTS `tbl_mat_desc` (
   `prno` varchar(20) NOT NULL,
   `section` varchar(50) NOT NULL,
   `disapprove` text NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_mat_desc`
@@ -177,7 +180,8 @@ INSERT INTO `tbl_mat_desc` (`id`, `description`, `pid`, `status`, `date_request`
 (10, 'dali kirk', 6, 4, '2016-07-21', '2016 - 0010', '1', ''),
 (11, 'This is to certify that i am eligible for this.', 9, 4, '2016-12-01', '2016 - 0011', 'For Desktop', ''),
 (12, 'Test Materials', 9, 4, '2016-12-07', '2016 - 0012', 'Test Material', ''),
-(13, 'this is a sample request', 9, 4, '2016-12-10', '2016 - 0013', 'sample request', '');
+(13, 'this is a sample request', 9, 4, '2016-12-10', '2016 - 0013', 'sample request', ''),
+(14, 'Sample ', 9, 1, '2016-12-12', '2016 - 0014', 'Good For Good', '');
 
 -- --------------------------------------------------------
 
@@ -333,7 +337,7 @@ CREATE TABLE IF NOT EXISTS `tbl_rfq` (
   `mid` int(11) NOT NULL,
   `rfq_no` varchar(30) NOT NULL,
   `delivery` varchar(60) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_rfq`
@@ -344,7 +348,8 @@ INSERT INTO `tbl_rfq` (`id`, `mid`, `rfq_no`, `delivery`) VALUES
 (21, 12, '0021', ''),
 (22, 12, '2016 - 0022', 'Carigara'),
 (23, 13, '0023', ''),
-(24, 13, '2016 - 0024', 'Carigara');
+(24, 13, '2016 - 0024', 'Carigara'),
+(25, 14, '0025', '');
 
 -- --------------------------------------------------------
 
@@ -573,7 +578,7 @@ ALTER TABLE `tbl_usertype`
 -- AUTO_INCREMENT for table `material_type`
 --
 ALTER TABLE `material_type`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `tbl_department`
 --
@@ -593,12 +598,12 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 -- AUTO_INCREMENT for table `tbl_material_list`
 --
 ALTER TABLE `tbl_material_list`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=19;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=20;
 --
 -- AUTO_INCREMENT for table `tbl_mat_desc`
 --
 ALTER TABLE `tbl_mat_desc`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `tbl_party`
 --
@@ -628,7 +633,7 @@ MODIFY `rid` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=16;
 -- AUTO_INCREMENT for table `tbl_rfq`
 --
 ALTER TABLE `tbl_rfq`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=25;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=26;
 --
 -- AUTO_INCREMENT for table `tbl_sig_po`
 --
