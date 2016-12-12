@@ -112,7 +112,7 @@
             </div>
 
             <div class="form-group">
-              <label class="col-sm-3 control-label">Units</label>
+              <label class="col-sm-3 control-label">Category</label>
               <div class="col-sm-9">
                 <select class="form-control" name="mat_type">
                   <?php foreach ($this->api->material_type() as $key => $value): ?>

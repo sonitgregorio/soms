@@ -7,7 +7,15 @@
                   <img src="../assets/images/EVSU.jpg" alt="x" width="40" style="border-radius:20px"/> EVSU
                 </a>
             </li>
-            <?php if($this->session->userdata('usertype') == 1 || $this->session->userdata('usertype') == 3) { ?>
+
+            <?php if($this->session->userdata('usertype') == 3) { ?>
+                <li>
+                    <a href="/list_req_mat" class="<?=  ($params == 'list_request_mat') ? 'active' : '' ?>" style="color:#fff;">List of Material Request</a>
+                </li>
+            <?php } ?>
+
+
+            <?php if($this->session->userdata('usertype') == 1 ) { ?>
             <!-- <li>
                 <a href="/user_registration" style="color:#fff">Student Registration</a>
             </li> -->
@@ -26,18 +34,6 @@
             <li>
                 <a href="/po_list" class="<?=  ($params == 'po') ? 'active' : '' ?>" style="color:#fff;">Purchase Order</a>
             </li>
-            <?php } else { ?>
-
-            <li>
-                <a href="/request_material" class="<?=  ($params == 'request_mat') ? 'active' : '' ?>" style="color:#fff;">Request Material</a>
-            </li>
-            <li>
-                <!-- <a href="/list_req_mat" style="color:#fff;">List of Material Request</a> -->
-            </li>
-            <?php } ?>
-            <li>
-                <a href="/iar" class="<?=  ($params == 'iar') ? 'active' : '' ?>" style="color:#fff;">Inspection and Acceptance Report</a>
-            </li>
             <li>
                 <a href="/rep" class="<?=  ($params == 'rep') ? 'active' : '' ?>" style="color:#fff;">Annual Procurement</a>
             </li>
@@ -50,6 +46,17 @@
             <li>
                 <a href="/reports_supply" class="<?=  ($params == 'supply') ? 'active' : '' ?>" style="color:#fff;">Reports Of Supply</a>
             </li>
+
+            <?php } else { ?>
+
+            <li>
+                <a href="/request_material" class="<?=  ($params == 'request_mat') ? 'active' : '' ?>" style="color:#fff;">Request Material</a>
+            </li>
+            <li>
+                <!-- <a href="/list_req_mat" style="color:#fff;">List of Material Request</a> -->
+            </li>
+
+            <?php } ?>
             <li>
                 <a href="/tr" class="<?=  ($params == 'track') ? 'active' : '' ?>" style="color:#fff;">Tracks</a>
             </li>

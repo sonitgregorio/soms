@@ -31,6 +31,7 @@
             $dataa = array('disapprove' => $reason);
             $this->db->where('id', $id);
             $this->db->update('tbl_mat_desc', $dataa);
+            echo "<script>alert('Reason successfully sent to the requestor')</script>>";
             redirect('/list_req_mat');
         }
 
